@@ -1,0 +1,62 @@
+.modal_active {
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+.modal {
+  visibility: hidden;
+  opacity: 0;
+  z-index: 7;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 15%;
+  left: 50%;
+  transition: 100ms;
+}
+.iconista {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 1.5rem;
+  left: 40px;
+  z-index: 3;
+}
+
+.input {
+  background: rgba(158, 71, 132, 0.49);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(9px);
+  -webkit-backdrop-filter: blur(9px);
+  border: 1px solid rgba(158, 71, 132, 0.3);
+  font-size: 1.5rem;
+  padding-left: 4rem;
+  padding-right: 4rem;
+  padding-block: 1.4rem;
+  box-sizing: border-box;
+  width: 100%;
+  color: white;
+}
+.modal {
+  width: 60%;
+}
+.input-wrapper {
+  position: relative;
+}
+.input::placeholder {
+  color: hsl(0, 0%, 80%);
+}
+@media (max-width: 500px) {
+  .modal {
+    width: 85%;
+  }
+}
+.escp {
+  color: white;
+  position: absolute;
+  z-index: 3;
+  font-size: 1.2rem;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  right: 10px;
+  cursor: pointer;
+}

@@ -1,0 +1,100 @@
+.nav_wrapper {
+  width: 100%;
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 60px;
+  /* From https://css.glass */
+  background: hsla(280, 42%, 50%, 0.63);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8.4px);
+  -webkit-backdrop-filter: blur(8.4px);
+  border: 1px solid rgba(102, 52, 127, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.1rem;
+  color: white;
+}
+.left {
+  padding-left: 1.7rem;
+}
+.right {
+  padding-right: 1rem;
+  gap: 0.6rem;
+}
+.action {
+  padding: 0.5rem;
+  border-radius: 5px;
+  color: white;
+  background: hsla(318, 38%, 75%, 0.204);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(7.1px);
+  -webkit-backdrop-filter: blur(7.1px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: 200ms;
+}
+.action:hover {
+  background-color: hsla(318, 38%, 25%, 0.804);
+}
+.right {
+  display: flex;
+  align-items: center;
+}
+.avatar {
+  gap: 0.5rem;
+  padding-inline: 0.8rem;
+  background-color: hsl(350, 51%, 59%);
+}
+.avatar,
+.texts {
+  display: flex;
+  align-items: center;
+}
+.texts {
+  flex-direction: column;
+  font-size: 0.8rem;
+}
+.texts .sub {
+  font-weight: 300;
+}
+
+.input {
+  padding-block: 0.5rem;
+  border-radius: 5px;
+  background-color: hsla(0, 0%, 100%, 0.3);
+  border: none;
+  outline: none;
+  padding-left: 2rem;
+  cursor: pointer;
+  transition: 200ms;
+}
+.input:hover {
+  background-color: hsla(0, 0%, 100%, 0.2);
+}
+.input::placeholder,
+.input {
+  color: white;
+  font-weight: 300;
+}
+.input_wrapper {
+  position: relative;
+}
+.icon {
+  position: absolute;
+  font-size: 1rem;
+  top: 50%;
+  left: 10%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+.label {
+  position: absolute;
+  font-size: 0.7rem;
+  font-weight: bold;
+  background-color: #582849cd;
+  top: 50%;
+  right: -8%;
+  transform: translate(-50%, -50%);
+  padding: 0.2rem 0.3rem;
+  border-radius: 5px;
+}

@@ -1,0 +1,25 @@
+.news_title {
+  margin-left: 45px;
+  color: white;
+  font-size: 1.8rem;
+  padding-block: 1rem;
+  font-weight: bold;
+}
+@media only screen and (max-width: 400px) {
+  .news_title {
+    font-size: 25px;
+    margin-left: 20px;
+  }
+  .wrapper {
+    width: calc(100vw - 2rem) !important;
+  }
+}
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: calc(100vw - 3rem);
+  position: relative;
+  z-index: 3;
+  padding-right: 1rem;
+}

@@ -1,0 +1,116 @@
+/*NEWS STYLING*/
+
+.news_image {
+  margin-right: 2rem;
+  width: 150px;
+  height: 150px;
+  border: 1px black solid;
+  border-radius: 20px;
+  background-color: black;
+  align-self: flex-start;
+}
+.news_card {
+  align-items: center;
+  display: flex;
+  width: calc(100vw - 8rem);
+  padding-left: 30px;
+  margin-left: 25px;
+  margin-bottom: 10px;
+  padding-block: 1.6rem;
+  background: rgba(255, 255, 255, 0.23);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(3.8px);
+  -webkit-backdrop-filter: blur(3.8px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  margin-left: 3rem;
+}
+.news_txt {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.news_judul {
+  color: white;
+  font-weight: bold;
+  width: auto;
+  font-size: 1.5rem;
+}
+.news_desc {
+  font-size: 1rem;
+}
+.news_desc {
+  width: 60%;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  color: white;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  font-weight: 600;
+  line-height: 21px;
+}
+.new_tag {
+  text-align: center;
+  display: flex;
+}
+.tag {
+  color: white;
+  border: 1px white solid;
+  border-radius: 20px;
+  width: 50px;
+  font-size: 10px;
+  padding: 2px;
+  background-color: transparent;
+  cursor: pointer;
+  margin-right: 5px;
+}
+/*NEWS STYLING END*/
+
+/*Image Styling End*/
+
+@media only screen and (max-width: 400px) {
+  .news_image {
+    height: 110px;
+    width: 110px;
+    margin-right: 20px;
+    margin-bottom: 0;
+    border-radius: 20px;
+  }
+  .news_card {
+    width: calc(100vw - 3rem);
+    border-radius: 20px;
+    z-index: 1;
+    padding-block: 1.3rem;
+    padding-left: 0.5rem;
+    margin-left: 15px;
+  }
+  .news_judul {
+    font-size: 17px;
+    font-weight: bold;
+  }
+  .news_desc {
+    font-size: 0.5rem;
+    font-weight: 300;
+  }
+  .new_tag {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+  }
+  .tag {
+    width: 50px;
+    font-size: 8px;
+    margin-right: 5px;
+    color: white;
+  }
+  .news_desc {
+    font-size: 12px !important;
+    width: calc(50vw - 1rem);
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    line-height: normal;
+  }
+}

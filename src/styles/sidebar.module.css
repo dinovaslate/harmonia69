@@ -1,0 +1,71 @@
+.sidenav {
+  box-sizing: border-box;
+  position: fixed;
+  inset: 0 auto 0 0;
+  width: 300px;
+  background: rgba(123, 55, 103, 0.75);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(7.7px);
+  -webkit-backdrop-filter: blur(7.7px);
+  border: 1px solid rgba(123, 55, 103, 0.5);
+  padding-inline: 1.2rem;
+  z-index: 7;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(-100%);
+  visibility: hidden;
+  gap: 0.2rem;
+  padding-block: 1rem;
+}
+.sidenav .button_sd:hover {
+  /* From https://css.glass */
+  background: rgba(55, 48, 107, 0.52);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8.9px);
+  -webkit-backdrop-filter: blur(8.9px);
+  /* border: 1px solid rgba(55, 48, 107, 0.5); */
+}
+.sidenav .icon {
+  position: absolute;
+  font-size: 1.3rem;
+  top: 25px;
+  left: 260px;
+}
+.sidenav_active {
+  visibility: visible;
+  transform: translateX(0);
+}
+.button_d_active {
+  transform: translateX(0%) !important;
+  opacity: 1 !important;
+}
+.sidenav .button_sd:nth-child(3) {
+  transition-delay: 80ms;
+}
+.sidenav .button_sd:nth-child(4) {
+  transition-delay: 120ms;
+}
+.sidenav .button_sd:nth-child(5) {
+  transition-delay: 150ms;
+}
+.sidenav .button_sd:nth-child(6) {
+  transition-delay: 180ms;
+}
+.sidenav .button_sd {
+  transform: translateX(-10%);
+  opacity: 0.2;
+  transition: 300ms ease-in-out;
+  font-weight: bold;
+  color: white;
+  padding: 0.8rem 1rem;
+  background-repeat: no-repeat;
+  text-align: left;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+.sidetrigger {
+  cursor: pointer;
+}

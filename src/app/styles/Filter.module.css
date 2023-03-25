@@ -1,0 +1,106 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: calc(100vw - 3rem);
+  /* From https://css.glass */
+  position: relative;
+  z-index: 3;
+  padding-right: 1rem;
+}
+.filter {
+  background: rgba(210, 118, 133, 0.52);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(7.2px);
+  -webkit-backdrop-filter: blur(7.2px);
+  border: 1px solid rgba(210, 118, 133, 0.3);
+  padding: 0.7rem 0.9rem;
+  display: flex;
+  gap: 0.5rem;
+  color: white;
+  cursor: pointer;
+}
+.options {
+  position: absolute;
+  display: flex;
+  gap: 0.8rem;
+  top: 20px;
+  padding: 1rem 1.5rem;
+  /* From https://css.glass */
+  background: rgba(158, 71, 132, 0.91);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(13.1px);
+  -webkit-backdrop-filter: blur(13.1px);
+  border: 1px solid rgba(158, 71, 132, 0.3);
+  transform: translateX(-80%);
+  opacity: 0;
+  transition: 150ms ease-in-out;
+  visibility: hidden;
+}
+@media (max-width: 500px) {
+  .options {
+    flex-direction: column;
+  }
+  .option:not(:last-child) {
+    border-right: none !important;
+    border-bottom: 1px solid white;
+  }
+  .option {
+    padding-right: 0;
+    padding-bottom: 1.3rem;
+  }
+}
+.options_active {
+  visibility: visible;
+  opacity: 1 !important;
+}
+.option:not(:last-child) {
+  border-right: 1px solid white;
+}
+.option {
+  display: flex;
+  flex-direction: column;
+  padding-right: 2.4rem;
+  cursor: pointer;
+}
+.options > * {
+  position: relative;
+}
+.options::before {
+  content: '';
+  display: block;
+  aspect-ratio: 1/1;
+  width: 20px;
+  background: rgba(158, 71, 132, 0.81);
+  /* background-color: red; */
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(13.1px);
+  -webkit-backdrop-filter: blur(13.1px);
+  border: 1px solid rgba(158, 71, 132, 0.3);
+  position: absolute;
+  transform: rotate(45deg);
+  top: -10px;
+  right: 30px;
+}
+.option ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  width: 130%;
+  padding-left: 0.4rem;
+  margin-top: 0.5rem;
+}
+.option ul li {
+  margin-left: 0rem;
+  background-color: #d27685;
+  padding: 0.3rem 0.8rem;
+  border-radius: 100vw;
+  width: fit-content;
+}
+.option_title {
+  font-weight: bold;
+  font-size: 1.3rem;
+}

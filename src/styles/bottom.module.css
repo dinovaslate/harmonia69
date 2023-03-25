@@ -1,0 +1,39 @@
+body .bottom_nav {
+  /* From https://css.glass */
+  /* From https://css.glass */
+  background: hsla(280, 42%, 25%, 0.3);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8.4px);
+  -webkit-backdrop-filter: blur(8.4px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  position: fixed;
+  inset: auto 30px 20px 30px;
+  height: 55px;
+  border-radius: 20px;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-evenly;
+  z-index: 5;
+}
+.bottom_nav .action {
+  background-color: transparent;
+  width: 100%;
+  padding-block: 0.8rem;
+  display: grid;
+  place-content: center;
+  font-size: 1.2rem;
+  cursor: pointer;
+  border-left: 2px solid white;
+  border-radius: 0;
+  color: white;
+}
+.bottom_nav .action:hover {
+  background-color: hsla(318, 38%, 25%, 0.45);
+}
+.action_first {
+  border: 0;
+  border-radius: 20px 0 0 20px;
+}
+.action_last {
+  border-radius: 0 20px 20px 0 !important;
+}

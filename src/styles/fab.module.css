@@ -1,0 +1,55 @@
+.FAB {
+  aspect-ratio: 1/1;
+  background-color: #9e4784;
+  width: 15px;
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  padding: 25px;
+  font-size: 1.3rem;
+  display: grid;
+  place-content: center;
+  color: white;
+  border-radius: 50%;
+  z-index: 5;
+  transition: 100ms ease-in-out;
+  cursor: pointer;
+  box-shadow: 0 0 10px 0 hsla(0, 0%, 0%, 0.5);
+  outline: none;
+}
+.actions_FAB {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  position: absolute;
+  bottom: 0;
+  transform: translate(-50%, -50%);
+  left: 50%;
+}
+.button {
+  aspect-ratio: 1/1;
+  box-shadow: 0 0 10px 0 hsla(0, 0%, 0%, 0.5);
+  padding: 15px;
+  font-size: 0.9rem;
+  background-color: #37306b;
+  border-radius: 50%;
+  transform: translateY(10%);
+  opacity: 0;
+  transition: 300ms ease-in-out;
+}
+.button_active {
+  transform: translateY(0) !important;
+  opacity: 1 !important;
+}
+.button:nth-child(2) {
+  background-color: #66347f;
+  transition-delay: 50ms;
+}
+.button:nth-child(1) {
+  background-color: #d27685;
+  transition-delay: 100ms;
+}
+.FAB:hover {
+  background-color: hsl(318, 38%, 35%);
+}

@@ -6,7 +6,7 @@ export default function Dashboard() {
       <div className="backdrop"></div>
       <div className="ambient"></div>
       <div className="ambient2"></div>
-      <div className="el-wrap x">
+      {/* <div className="el-wrap x">
         <svg
           className="el y"
           id="svg"
@@ -174,7 +174,7 @@ export default function Dashboard() {
             filter="url(#ffflux-filter)"
           ></rect>
         </svg>
-      </div>
+      </div> */}
       <div className="nav-wrapper">
         <div className="left">
           <i className="fa-solid fa-bars sidetrigger"></i>

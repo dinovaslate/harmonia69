@@ -1,624 +1,612 @@
 .wrapper {
-    padding: 1rem;
-    margin-inline: 1rem;
-    /* From https://css.glass */
-    background: rgba(255, 255, 255, 0.13);
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
-    grid-template-rows: 10px;
-    grid-gap: 0.1rem;
-    justify-content: left;
+  padding: 1rem;
+  margin-inline: 1rem;
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.13);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  grid-template-rows: 10px;
+  grid-gap: 0.1rem;
+  justify-content: left;
+}
+@media (min-width: 400px) {
+  .wrapper {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)) !important;
+    grid-gap: 0.5rem !important;
   }
-  @media (min-width: 400px) {
-    .wrapper {
-      grid-template-columns: repeat(
-        auto-fill,
-        minmax(180px, 1fr)
-      ) !important;
-      grid-gap: 0.5rem !important;
-    }
+}
+@media (min-width: 1500px) {
+  .wrapper {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)) !important;
+    grid-gap: 0.2rem !important;
   }
-  @media (min-width: 1500px) {
-    .wrapper {
-      grid-template-columns: repeat(
-        auto-fill,
-        minmax(250px, 1fr)
-      ) !important;
-      grid-gap: 0.2rem !important;
-    }
-  }
-  .wrapper img {
-    width: 100%;
-    border-radius: 10px;
-    filter: saturate(70%);
-  }
-  .ambient {
-    aspect-ratio: 1/1;
-    border-radius: 50%;
-    position: absolute;
-    width: 45vw;
-    /* bottom: 10%;
+}
+.wrapper img {
+  width: 100%;
+  border-radius: 10px;
+  filter: saturate(70%);
+}
+.ambient {
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  position: absolute;
+  width: 45vw;
+  /* bottom: 10%;
     left: -10%; */
-    background-color: rgb(210, 118, 133);
-    filter: blur(150px);
-    z-index: -1;
+  background-color: rgb(210, 118, 133);
+  filter: blur(150px);
+  z-index: -1;
+}
+.ambient2 {
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  position: absolute;
+  width: 300px;
+  right: 10px;
+  background-color: hsl(350, 51%, 54%);
+  filter: blur(150px);
+  z-index: 2;
+}
+#svg,
+#svg2 {
+  position: fixed;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  right: 0%;
+  left: 0%;
+  top: -20%;
+  width: 400px;
+  filter: blur(50px);
+  height: fit-content;
+  mix-blend-mode: color-burn;
+}
+#svg2 {
+  top: 10rem;
+  --y-speed: 15s !important;
+}
+.x {
+  position: absolute;
+  animation: x var(--x-speed) linear infinite alternate;
+}
+.y {
+  animation: y var(--y-speed) linear infinite alternate;
+}
+
+@keyframes x {
+  100% {
+    transform: translateX(calc(100vw - var(--width)));
   }
-  .ambient2 {
-    aspect-ratio: 1/1;
-    border-radius: 50%;
-    position: absolute;
-    width: 300px;
-    right: 10px;
-    background-color: hsl(350, 51%, 54%);
-    filter: blur(150px);
-    z-index: 2;
+}
+@keyframes y {
+  100% {
+    transform: translateY(calc(100vh - var(--width)));
   }
-  #svg,
-  #svg2 {
-    position: fixed;
-    aspect-ratio: 1/1;
-    border-radius: 50%;
-    right: 0%;
-    left: 0%;
-    top: -20%;
-    width: 400px;
-    filter: blur(50px);
-    height: fit-content;
-    mix-blend-mode: color-burn;
-  }
-  #svg2 {
-    top:10rem;
-  }
-  .x, .y {
-    --width: 400px;
-    --x-speed: 30s;
-    --y-speed: 18s;
-    --transition-speed: 2.2s;
-  }
-  @media (max-width:400px){
-    .x , .y{
-      --width:300px !important;
-    }
-    #svg, #svg2{
-      width:300px !important;
-    }
-  }
-  .x {
-    position: absolute;
-    animation: x var(--x-speed) linear infinite alternate;
-  }
-  .y {
-    animation: y var(--y-speed) linear infinite alternate;
-  }
-  @keyframes x {
-    100% {
-      transform: translateX(calc(100vw - var(--width)));
-    }
-  }
-  @keyframes y {
-    100% {
-      transform: translateY(calc(max(100vh, var(--height)) - var(--width)));
-    }
-  }
-  
-  .projects3 {
-padding-left: 20px;
-padding-top: 0.5rem;
-margin-top: 1rem;
-display: flex;
-align-items: center;
-gap: 1rem;
-overflow: auto;
-flex-shrink: 0;
-padding-block: 0.7rem;
-padding-inline: 2rem;
-scroll-snap-type: inline mandatory;
-scroll-padding-inline: 1.3rem;
-overflow-x: auto;
--webkit-overflow-scrolling: touch;
-    /* From https://css.glass */
-background: rgba(10, 10, 10, 0.3);
-border-radius: 16px;
-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-backdrop-filter: blur(8.2px);
--webkit-backdrop-filter: blur(8.2px);
-border: 1px solid rgba(10, 10, 10, 0.3);
-margin-inline: 1rem;
+}
+.news_title {
+  margin-left: 45px;
+  color: white;
+  font-size: 2.1rem;
+  font-weight: bold;
+  margin-top: 1rem;
+  padding-left: 1rem;
+}
+.projects3 {
+  padding-left: 20px;
+  padding-top: 0.5rem;
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  overflow: auto;
+  flex-shrink: 0;
+  padding-block: 0.7rem;
+  padding-inline: 2rem;
+  scroll-snap-type: inline mandatory;
+  scroll-padding-inline: 1.3rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  /* From https://css.glass */
+  background: rgba(10, 10, 10, 0.3);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8.2px);
+  -webkit-backdrop-filter: blur(8.2px);
+  border: 1px solid rgba(10, 10, 10, 0.3);
+  margin-inline: 1rem;
 }
 .project2 {
-scroll-snap-align: start;
-background: rgba(255, 255, 255, 0.50);
-border-radius: 10px;
-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
-backdrop-filter: blur(7px);
--webkit-backdrop-filter: blur(7px);
-border: 1px solid rgba(255, 255, 255, 0.3);
-display: flex;
-flex-direction: column;
-gap: 1rem;
-color: white;
-flex-shrink: 0;
-cursor: pointer;
-overflow: hidden;
+  scroll-snap-align: start;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  color: white;
+  flex-shrink: 0;
+  cursor: pointer;
+  overflow: hidden;
 }
-.project2_img{
-width: 18rem;;
-aspect-ratio: 12/20;
-border-radius: 10px;
-object-fit: cover;
+.project2_img {
+  width: 18rem;
+  aspect-ratio: 12/20;
+  border-radius: 10px;
+  object-fit: cover;
 }
-.project2_img:hover{
-inset: 3px 3px 3px 3px;
-background-color: black;
-
+.project2_img:hover {
+  inset: 3px 3px 3px 3px;
+  background-color: black;
 }
 .project2 .section2 {
-display: flex;
-align-items: center;
-justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
-.section2_desc{
-z-index: 100;
+.section2_desc {
+  z-index: 100;
 }
-.section2{
-overflow: hidden;
+.section2 {
+  overflow: hidden;
 }
-.wrapper2{
-font-family: 'Raleway', sans-serif;
-position: absolute;
-bottom: 0px;
-padding-left: 5px;
-padding-top: 0.8rem;
-background: rgba(10, 10, 10, 0.24);
-border-radius: 7px;
-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-backdrop-filter: blur(9.3px);
--webkit-backdrop-filter: blur(9.3px);
-padding-bottom: 1rem;
-width: 97.5%;
-transform: translateY(64%);
-transition: 500ms ease-in-out;
-display: flex;
-flex-direction: column;
-align-items: flex-start;
-gap: 0.6rem;
+.wrapper2 {
+  font-family: 'Raleway', sans-serif;
+  position: absolute;
+  bottom: 0px;
+  padding-left: 5px;
+  padding-top: 0.8rem;
+  background: rgba(10, 10, 10, 0.24);
+  border-radius: 7px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(9.3px);
+  -webkit-backdrop-filter: blur(9.3px);
+  padding-bottom: 1rem;
+  width: 97.5%;
+  transform: translateY(64%);
+  transition: 500ms ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.6rem;
 }
-.ribbon{
-position: absolute;
-height: 1.2rem;
-width: fit-content;
-font-size: 1.05rem;
-top: -10%;
-left: 50%;
-transform: translate(-50%, -50%) scale(0.88);
-z-index: 1;
-transform-style: preserve-3d;
-font-weight: 600;
+.ribbon {
+  position: absolute;
+  height: 1.2rem;
+  width: fit-content;
+  font-size: 1.05rem;
+  top: -10%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.88);
+  z-index: 1;
+  transform-style: preserve-3d;
+  font-weight: 600;
 }
-.square{
-/* From https://css.glass */
-background: hsla(350, 51%, 74%, 1);
-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-backdrop-filter: blur(8.7px);
--webkit-backdrop-filter: blur(8.7px);
-border: 1px solid rgba(210, 118, 133, 0.54);
-height: 100%;
-padding: 0.4rem 1.3rem;
-z-index: 4;
+.square {
+  /* From https://css.glass */
+  background: hsla(350, 51%, 74%, 1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8.7px);
+  -webkit-backdrop-filter: blur(8.7px);
+  border: 1px solid rgba(210, 118, 133, 0.54);
+  height: 100%;
+  padding: 0.4rem 1.3rem;
+  z-index: 4;
 }
-.tail{
-position: absolute;
-width: 2.9rem;
-inset: -0.7rem auto 0 0;
-transform: translateX(-75%) translateY(23px) translateZ(-10px);
-background: hsla(350, 51%, 64%, 0.6);
-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-/* backdrop-filter: blur(8.7px);
+.tail {
+  position: absolute;
+  width: 2.9rem;
+  inset: -0.7rem auto 0 0;
+  transform: translateX(-75%) translateY(23px) translateZ(-10px);
+  background: hsla(350, 51%, 64%, 0.6);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  /* backdrop-filter: blur(8.7px);
 -webkit-backdrop-filter: blur(8.7px); */
-border: 1px solid rgba(210, 118, 133, 0.54);
-clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 100%, 48% 50%);
-z-index: -2;
+  border: 1px solid rgba(210, 118, 133, 0.54);
+  clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 100%, 48% 50%);
+  z-index: -2;
 }
-.tail:nth-of-type(3){
-inset: -0.7rem -50% 0 auto;
-transform: translateX(-75%) translateY(23px) translateZ(-10px) rotate(180deg);
+.tail:nth-of-type(3) {
+  inset: -0.7rem -50% 0 auto;
+  transform: translateX(-75%) translateY(23px) translateZ(-10px) rotate(180deg);
 }
-.wrapper2.active{
-transform: translateY(0);
-border: 1px solid rgba(255, 255, 255, 0.3);
-/* From https://css.glass */
-background: rgba(10, 10, 10, 0.5);
-border-radius: 10px 10px 0 0 ;
-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-backdrop-filter: blur(10.4px);
--webkit-backdrop-filter: blur(10.4px);
+.wrapper2.active {
+  transform: translateY(0);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  /* From https://css.glass */
+  background: rgba(10, 10, 10, 0.5);
+  border-radius: 10px 10px 0 0;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10.4px);
+  -webkit-backdrop-filter: blur(10.4px);
 }
-.project2_desc{
-font-size: 24px;
-margin-left: 10px;
-line-height: 0px;
+.project2_desc {
+  font-size: 24px;
+  margin-left: 10px;
+  line-height: 0px;
 }
-.project2_sub{
-margin-top: -5px;
-text-align: justify;
-font-size: 0.8rem;
-padding-inline: 0.7rem;
-font-weight: 300;
-display: -webkit-box;
--webkit-box-orient: vertical;
--webkit-line-clamp: 3;
-overflow: hidden;
+.project2_sub {
+  margin-top: -5px;
+  text-align: justify;
+  font-size: 0.8rem;
+  padding-inline: 0.7rem;
+  font-weight: 300;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
 }
-.avatar2{
-display: flex;
-gap: 0.1rem;
-align-items: center;
+.avatar2 {
+  display: flex;
+  gap: 0.1rem;
+  align-items: center;
 }
-.avatar_img{
-width: 1.6rem;
-/* border-radius: 50%; */
-padding-inline: 10px;
-aspect-ratio: 1/1;
-object-fit: cover;
+.avatar_img {
+  width: 1.6rem;
+  /* border-radius: 50%; */
+  padding-inline: 10px;
+  aspect-ratio: 1/1;
+  object-fit: cover;
 }
-.project2_desc span{
-/* From https://css.glass */
-background: hsla(0, 55%, 70%, 0.5);
-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-backdrop-filter: blur(10.4px);
--webkit-backdrop-filter: blur(10.4px);
-border: 1px solid hsla(0, 55%, 52%, 0.54);
-padding: 0.2rem;
-font-size: 0.9rem;
+.project2_desc span {
+  /* From https://css.glass */
+  background: hsla(0, 55%, 70%, 0.5);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10.4px);
+  -webkit-backdrop-filter: blur(10.4px);
+  border: 1px solid hsla(0, 55%, 52%, 0.54);
+  padding: 0.2rem;
+  font-size: 0.9rem;
 }
-.lightbox{
-position: fixed;
-z-index: 6;
-transform: translate(-50%, -50%);
-top: 45%;
-left: 50%;
-width: fit-content;
-text-align: center;
-visibility: hidden;
-opacity: 0;
-transition: 100ms ease-in-out;
+.lightbox {
+  position: fixed;
+  z-index: 6;
+  transform: translate(-50%, -50%);
+  top: 45%;
+  left: 50%;
+  width: fit-content;
+  text-align: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: 100ms ease-in-out;
 }
-.lightbox.active{
-visibility: visible;
-opacity: 1;
+.lightbox.active {
+  visibility: visible;
+  opacity: 1;
 }
-.lightbox #img{
-aspect-ratio: 4/3;
-width: max(min(550px, 90vw), calc(min(100vw, 100vh) - 15rem));
-border-radius: 15px;
-object-fit: cover;
+.lightbox #img {
+  aspect-ratio: 4/3;
+  width: max(min(550px, 90vw), calc(min(100vw, 100vh) - 15rem));
+  border-radius: 15px;
+  object-fit: cover;
 }
-.lightbox h1{
-color: white;
+.lightbox h1 {
+  color: white;
 }
-.lightbox p{
-color: white;
-width: max(min(550px, 90vw), calc(min(100vw, 100vh) - 15rem));
+.lightbox p {
+  color: white;
+  width: max(min(550px, 90vw), calc(min(100vw, 100vh) - 15rem));
 }
-.tags{
-display: flex;
-gap: 0.7rem;
-flex-wrap: wrap;
-justify-content: center;
+.tags {
+  display: flex;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+  justify-content: center;
 }
-.tag{
-color: white;
-background-color: #D27685;
-padding: 0.3rem;
-border-radius: 10px;
+.tag {
+  color: white;
+  background-color: #d27685;
+  padding: 0.3rem;
+  border-radius: 10px;
 }
-.avatar3{
-display: flex;
-justify-content: center;
-align-items: center;
-color: white;
-gap: 0.8rem;
+.avatar3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  gap: 0.8rem;
 }
-.avatar3 img{
-aspect-ratio: 1/1;
-object-fit: cover;
-width: 2rem;
+.avatar3 img {
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  width: 2rem;
 }
 .wrapper3 {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: calc(100vw - 3rem);
-    /* From https://css.glass */
-    position: relative;
-    z-index: 3;
-    padding-right: 1rem;
-  }
-  .filter {
-    background: rgba(210, 118, 133, 0.52);
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(7.2px);
-    -webkit-backdrop-filter: blur(7.2px);
-    border: 1px solid rgba(210, 118, 133, 0.3);
-    padding: 0.7rem 0.9rem;
-    display: flex;
-    gap: 0.5rem;
-    color: white;
-    cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: calc(100vw - 3rem);
+  /* From https://css.glass */
+  position: relative;
+  z-index: 3;
+  padding-right: 1rem;
+}
+.filter {
+  background: rgba(210, 118, 133, 0.52);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(7.2px);
+  -webkit-backdrop-filter: blur(7.2px);
+  border: 1px solid rgba(210, 118, 133, 0.3);
+  padding: 0.7rem 0.9rem;
+  display: flex;
+  gap: 0.5rem;
+  color: white;
+  cursor: pointer;
+}
+.options {
+  position: absolute;
+  display: flex;
+  gap: 0.8rem;
+  top: 48px;
+  padding: 1rem 1.5rem;
+  /* From https://css.glass */
+  background: rgba(158, 71, 132, 0.91);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(13.1px);
+  -webkit-backdrop-filter: blur(13.1px);
+  border: 1px solid hsla(0, 0%, 100%, 0.5);
+  transform: translateX(-80%);
+  opacity: 0;
+  transition: 150ms ease-in-out;
+  visibility: hidden;
+}
+.options.active {
+  visibility: visible;
+  opacity: 1;
+}
+.option:not(:last-child) {
+  border-right: 1px solid white;
+}
+.option {
+  display: flex;
+  flex-direction: column;
+  padding-right: 2.4rem;
+  cursor: pointer;
+}
+.options > * {
+  position: relative;
+}
+.options::before {
+  content: '';
+  display: block;
+  aspect-ratio: 1/1;
+  width: 20px;
+  background: rgba(158, 71, 132, 0.81);
+  /* background-color: red; */
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(13.1px);
+  -webkit-backdrop-filter: blur(13.1px);
+  border-left: 1px solid hsla(0, 0%, 100%, 0.5);
+  border-top: 1px solid hsla(0, 0%, 100%, 0.5);
+  position: absolute;
+  transform: rotate(45deg);
+  z-index: 1;
+  top: -10px;
+  right: 30px;
+}
+.option ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  width: 130%;
+  padding-left: 0.4rem;
+}
+.option ul li {
+  /* From https://css.glass */
+  background: rgba(210, 118, 133, 0.45);
+  border-radius: 16px;
+  padding-block: 0.1rem;
+  padding-inline: 0.4rem;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(11.1px);
+  -webkit-backdrop-filter: blur(11.1px);
+  border: 1px solid rgba(210, 118, 133, 0.54);
+  width: fit-content;
+  margin-left: 0rem;
+}
+.option_title {
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+.upload {
+  visibility: hidden;
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  inset: 50% auto auto 50%;
+  height: fit-content;
+  width: min(80vw, 500px);
+  background: rgba(210, 118, 133, 0.72);
+  /* From https://css.glass */
+  background: rgba(158, 71, 132, 0.62);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(9.3px);
+  -webkit-backdrop-filter: blur(9.3px);
+  border: 1px solid rgba(158, 71, 132, 0.3);
+  z-index: 8;
+  padding-inline: 1rem;
+  padding-block: 1.7rem;
+}
+.upload.active {
+  visibility: visible;
+  opacity: 1;
+}
+.D_D {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.6rem;
+  color: white;
+  /* From https://css.glass */
+  background: rgba(210, 118, 133, 0.44);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(11.5px);
+  -webkit-backdrop-filter: blur(11.5px);
+  border: 5px dashed rgba(210, 118, 133, 1);
+  font-size: 1.4rem;
+  padding-inline: 2rem;
+  text-align: center;
+  padding-block: 4rem;
+}
+.D_D i {
+  font-size: 4.5rem;
+}
+@media (max-width: 500px) {
+  .lightbox p {
+    font-size: 0.9rem;
   }
   .options {
-    position: absolute;
-    display: flex;
-    gap: 0.8rem;
-    top: 48px;
-    padding: 1rem 1.5rem;
-    /* From https://css.glass */
-    background: rgba(158, 71, 132, 0.91);
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(13.1px);
-    -webkit-backdrop-filter: blur(13.1px);
-    border: 1px solid hsla(0, 0%, 100%, 0.5);
-    transform: translateX(-80%);
-    opacity: 0;
-    transition: 150ms ease-in-out;
-    visibility: hidden;
-  }
-  .options.active {
-    visibility: visible;
-    opacity: 1;
+    flex-direction: column;
   }
   .option:not(:last-child) {
-    border-right: 1px solid white;
+    border-right: none;
+    border-bottom: 1px solid white;
   }
-  .option {
-    display: flex;
-    flex-direction: column;
-    padding-right: 2.4rem;
-    cursor: pointer;
-  }
-  .options > * {
-    position: relative;
-  }
-  .options::before {
-    content: '';
-    display: block;
-    aspect-ratio: 1/1;
-    width: 20px;
-    background: rgba(158, 71, 132, 0.81);
-    /* background-color: red; */
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(13.1px);
-    -webkit-backdrop-filter: blur(13.1px);
-    border-left: 1px solid hsla(0, 0%, 100%, 0.5);
-    border-top: 1px solid hsla(0, 0%, 100%, 0.5);
-    position: absolute;
-    transform: rotate(45deg);
-    z-index: 1;
-    top: -10px;
-    right: 30px;
-  }
-  .option ul {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-    width: 130%;
-    padding-left: 0.4rem;
-  }
-  .option ul li {
-   /* From https://css.glass */
-    background: rgba(210, 118, 133, 0.45);
-    border-radius: 16px;
-    padding-block: 0.1rem;
-    padding-inline: 0.4rem;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(11.1px);
-    -webkit-backdrop-filter: blur(11.1px);
-    border: 1px solid rgba(210, 118, 133, 0.54);
-    width: fit-content;
-    margin-left: 0rem;
-  }
-  .option_title {
-    font-weight: bold;
-    font-size: 1.3rem;
-  }
-  .upload{
-    visibility: hidden;
-    opacity: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    position: fixed;
-    transform: translate(-50%, -50%);
-    inset: 50% auto auto 50%;
-    height: fit-content;
-    width: min(80vw, 500px);
-    background: rgba(210, 118, 133, 0.72);
-   /* From https://css.glass */
-    background: rgba(158, 71, 132, 0.62);
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(9.3px);
-    -webkit-backdrop-filter: blur(9.3px);
-    border: 1px solid rgba(158, 71, 132, 0.3);
-    z-index: 8;
-    padding-inline: 1rem;
-    padding-block: 1.7rem;
-  }
-  .upload.active{
-    visibility: visible;
-    opacity: 1;
-  }
-  .D_D{
-    
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.6rem;
-    color: white;
-          /* From https://css.glass */
-    background: rgba(210, 118, 133, 0.44);
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(11.5px);
-    -webkit-backdrop-filter: blur(11.5px);
-    border: 5px dashed rgba(210, 118, 133, 1);
-    font-size: 1.4rem;
-    padding-inline: 2rem;
-    text-align: center;
-    padding-block: 4rem;
-  }
-  .D_D i{
-    font-size: 4.5rem;
-  }
-  @media (max-width:500px){
-    .lightbox p{
-      font-size:0.9rem;
-    }
-    .options{
-      flex-direction:column;
-    }
-    .option:not(:last-child) {
-        border-right: none;
-        border-bottom: 1px solid white;
-    }
-  }
-  .upload .input_wrapper, .upload .input{
-    width: calc(100% - 1rem);
-    font-size: 1.1rem;
-  }
-  .upload .input::placeholder{
-    font-weight: bold;
-  }
-  .upload .input_wrapper .icon{
-    font-size: 1.1rem;
-    left: 15px;
-  }
-  .input_wrapper .button{
-    /* From https://css.glass */
-    background: hsla(280, 42%, 35%, 0.78);
-    border-radius: 0 5px 5px 0;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(11.5px);
-    -webkit-backdrop-filter: blur(11.5px);
-    border: 1px solid rgba(102, 52, 127, 0.3);
-    color: white;
-    position: absolute;
-    padding: 0.5rem 1.5rem;
-    top: 0;
-    right: -20px;
-    font-weight: bold;
-    cursor: pointer;
-  }
-  .input-wrapper .button:hover{
-    background: hsla(280, 42%, 25%, 0.78);
-  }
-  .loadings{
-    margin-top: 0.7rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    color: white;
-  }
-  .file{
-    /* From https://css.glass */
-    background: rgba(24, 23, 23, 0.37);
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(10.7px);
-    -webkit-backdrop-filter: blur(10.7px);
-    border: 1px solid rgba(226, 226, 226, 0.3);
-    padding: 1.2rem;
-    display: flex;
-    gap: 1rem;
-  }
-  .file i {
-    font-size: 3.1rem;
-  }
-  .status{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 0.25rem;
-    width: 100%;
-  }
-  .progressBar{
-    box-sizing: border-box;
-    width: 100%;
-    height: 5px;
-    border-radius: 100vw;
-    /* From https://css.glass */
-    background: rgba(210, 118, 133, 0.8);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(11.5px);
-    -webkit-backdrop-filter: blur(11.5px);
-    padding: 0;
-    border: 1px solid rgba(210, 118, 133, 0.3);
-  }
-  .progressBar .value{
-    box-sizing: border-box;
-    --value: 20%;
-    inset: 0 auto 0 0;
-    width: var(--value);
-    height: 100%;
-    /* From https://css.glass */
-    background: rgba(55, 48, 107, 0.8);
-    border-radius: 100vw;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(11.5px);
-    -webkit-backdrop-filter: blur(11.5px);
-    border: 1px solid rgba(55, 48, 107, 0.3);
-  }
-  .statistic{
-    display: flex;
-    justify-content: space-between;
-    font-weight: 100;
-  }
-  .status .filename{
-    font-weight: bold;
-  }
-  .bottom_nav .upload_trigger{
-    /* From https://css.glass */
+}
+.upload .input_wrapper,
+.upload .input {
+  width: calc(100% - 1rem);
+  font-size: 1.1rem;
+}
+.upload .input::placeholder {
+  font-weight: bold;
+}
+.upload .input_wrapper .icon {
+  font-size: 1.1rem;
+  left: 15px;
+}
+.input_wrapper .button {
+  /* From https://css.glass */
+  background: hsla(280, 42%, 35%, 0.78);
+  border-radius: 0 5px 5px 0;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(11.5px);
+  -webkit-backdrop-filter: blur(11.5px);
+  border: 1px solid rgba(102, 52, 127, 0.3);
+  color: white;
+  position: absolute;
+  padding: 0.5rem 1.5rem;
+  top: 0;
+  right: -20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.input-wrapper .button:hover {
+  background: hsla(280, 42%, 25%, 0.78);
+}
+.loadings {
+  margin-top: 0.7rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  color: white;
+}
+.file {
+  /* From https://css.glass */
+  background: rgba(24, 23, 23, 0.37);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10.7px);
+  -webkit-backdrop-filter: blur(10.7px);
+  border: 1px solid rgba(226, 226, 226, 0.3);
+  padding: 1.2rem;
+  display: flex;
+  gap: 1rem;
+}
+.file i {
+  font-size: 3.1rem;
+}
+.status {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.25rem;
+  width: 100%;
+}
+.progressBar {
+  box-sizing: border-box;
+  width: 100%;
+  height: 5px;
+  border-radius: 100vw;
+  /* From https://css.glass */
+  background: rgba(210, 118, 133, 0.8);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(11.5px);
+  -webkit-backdrop-filter: blur(11.5px);
+  padding: 0;
+  border: 1px solid rgba(210, 118, 133, 0.3);
+}
+.progressBar .value {
+  box-sizing: border-box;
+  --value: 20%;
+  inset: 0 auto 0 0;
+  width: var(--value);
+  height: 100%;
+  /* From https://css.glass */
+  background: rgba(55, 48, 107, 0.8);
+  border-radius: 100vw;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(11.5px);
+  -webkit-backdrop-filter: blur(11.5px);
+  border: 1px solid rgba(55, 48, 107, 0.3);
+}
+.statistic {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 100;
+}
+.status .filename {
+  font-weight: bold;
+}
+.bottom_nav .upload_trigger {
+  /* From https://css.glass */
   background: rgba(210, 118, 133, 0.7);
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(10.7px);
   -webkit-backdrop-filter: blur(10.7px);
   border: 1px solid rgba(210, 118, 133, 0.3);
-  }
-  .logout{
-    /* From https://css.glass */
-    position: absolute;
-    font-weight: bold;
-    width: 100%;
-    text-align: center;
-    bottom: 0;
-    opacity: 0;
-    visibility: hidden;
-    left: 0;
-    background: hsla(350, 59%, 58%, 0.9);
-    border-radius: 5px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(10.7px);
-    -webkit-backdrop-filter: blur(10.7px);
-    border: 1px solid rgba(212, 86, 106, 0.3);
-    padding: 0.3rem 0.8rem;
-    box-sizing: border-box;
-    transition: 150ms ease-in-out;
-    cursor: pointer;
-  }
-  .logout:hover{
-    background: hsla(350, 59%, 48%, 0.9);
-  }
-  .logout.active{
-    visibility: visible;
-    opacity: 1;
-    transform: translateY(140%);
-  }
+}
+.logout {
+  /* From https://css.glass */
+  position: absolute;
+  font-weight: bold;
+  width: 100%;
+  text-align: center;
+  bottom: 0;
+  opacity: 0;
+  visibility: hidden;
+  left: 0;
+  background: hsla(350, 59%, 58%, 0.9);
+  border-radius: 5px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10.7px);
+  -webkit-backdrop-filter: blur(10.7px);
+  border: 1px solid rgba(212, 86, 106, 0.3);
+  padding: 0.3rem 0.8rem;
+  box-sizing: border-box;
+  transition: 150ms ease-in-out;
+  cursor: pointer;
+}
+.logout:hover {
+  background: hsla(350, 59%, 48%, 0.9);
+}
+.logout.active {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(140%);
+}

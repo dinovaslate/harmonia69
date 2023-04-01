@@ -5,7 +5,7 @@ import { FaFilter } from 'react-icons/fa';
 import s from '../styles/Filter.module.css';
 import Option from './Option';
 import { useState, useRef, useEffect } from 'react';
-export default function Filter() {
+export default function Filter({ options }) {
   const [active, setActive] = useState(false);
   const sref = useRef();
   const parrentRef = useRef();
@@ -20,23 +20,6 @@ export default function Filter() {
       setActive((active) => !active);
     }
   };
-  const options = [
-    {
-      id: 1,
-      title: 'Style',
-      items: ['Digital', 'Traditional', 'Photography'],
-    },
-    {
-      id: 2,
-      title: 'Color',
-      items: ['Red', 'Yellow', 'Green'],
-    },
-    {
-      id: 2,
-      title: 'Background',
-      items: ['Red', 'Yellow', 'Green'],
-    },
-  ];
   return (
     <div className={`${s.filter}`} ref={parrentRef} onClick={(e) => toggle(e)}>
       <FaFilter />

@@ -6,6 +6,7 @@ import Modal from '@/GlobalComponents/Modal';
 import FAB from '@/GlobalComponents/FAB';
 import Side from '@/GlobalComponents/Side';
 import Bottom from '@/GlobalComponents/Bottom';
+import Upload from '@/GlobalComponents/Upload';
 export const metadata = {
   title: 'Harmonia',
   description: 'Created by Haekal Dinova & Alfath ',
@@ -31,6 +32,7 @@ export default function RootLayout({ children }) {
         <FAB />
         <Side SideNavStatus={SideNavStatus} activateSideNav={activateSideNav} />
         <Bottom />
+        <Upload />
         <div className="news-container">{children}</div>
       </body>
     </html>

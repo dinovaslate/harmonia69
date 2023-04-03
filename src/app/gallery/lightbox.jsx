@@ -1,21 +1,46 @@
-import React from 'react';
+'use client';
+
+import React, { useEffect, useRef } from 'react';
 import s from '../styles/gallery.module.css';
-function Lightbox({}) {
+function Lightbox({
+  src,
+  desc,
+  title,
+  avatar,
+  creator,
+  tags,
+  active,
+  setActive,
+}) {
+  const lightboxRef = useRef();
+  useEffect(() => {
+    document.body.addEventListener(
+      'click',
+      (e) => {
+        if (lightboxRef.current.contains(e.target)) return;
+        setActive(false);
+      },
+      { capture: true }
+    );
+  }, []);
   return (
     <>
-      <div className={s.lightbox}>
+      <div
+        ref={lightboxRef}
+        className={`${s.lightbox} ${active && s.lightbox_active}`}
+      >
         <div className={s.content}>
-          <img
-            id="img"
-            src="https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aHVtYW58ZW58MHx8MHx8&w=1000&q=80"
-            alt=""
-          />
+          <img className={s.img} src={src} alt="" />
+          <h1 className={s.judul}>{title}</h1>
+          <div className={s.tags}>
+            {tags.map((tag) => (
+              <div className={s.tag}>{tag}</div>
+            ))}
+          </div>
+          <p>{desc}</p>
           <div className={s.avatar3}>
-            <img
-              className={s.avatar3_img}
-              src="https://png.pngtree.com/png-vector/20190115/ourlarge/pngtree-web-page-ui-default-avatar-handsome-guy-png-image_344498.jpg"
-            />
-            Kiran Mahmud
+            <img className={s.avatar3_img} src={avatar} />
+            {creator}
           </div>
         </div>
       </div>

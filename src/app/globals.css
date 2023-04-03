@@ -97,11 +97,12 @@ body.active {
   position: fixed;
   inset: 0;
   z-index: 6;
-  background: rgba(88, 40, 73, 0.64);
+  /* From https://css.glass */
+  background: hsla(256, 15%, 4%, 0.59);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(7.4px);
-  -webkit-backdrop-filter: blur(7.4px);
-  border: 1px solid rgba(88, 40, 73, 0.23);
+  backdrop-filter: blur(8.7px);
+  -webkit-backdrop-filter: blur(8.7px);
+  border: 1px solid rgba(33, 30, 41, 0.25);
 }
 body {
   margin: 0;
@@ -120,6 +121,33 @@ body {
   }
 }
 
+.bg {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.x {
+  position: absolute;
+  animation: x var(--x-speed) linear infinite alternate;
+}
+.y {
+  position: absolute;
+  animation: y var(--y-speed) linear infinite alternate;
+}
+
+@keyframes x {
+  100% {
+    transform: translateX(calc(100vw - var(--width)));
+  }
+}
+@keyframes y {
+  100% {
+    transform: translateY(calc(100vh - var(--width)));
+  }
+}
 .news-container {
   min-width: 100vw;
   min-height: 100vh;

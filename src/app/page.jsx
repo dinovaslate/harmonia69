@@ -3,6 +3,7 @@ import styles from './page.module.css';
 import Projects from './components/Projects';
 import Filter from './components/Filter';
 import News from './components/News';
+import Ambient from '@/GlobalComponents/Ambient';
 export default function Home() {
   const options = [
     {
@@ -23,6 +24,7 @@ export default function Home() {
   ];
   return (
     <main>
+      <Ambient />
       <h1 className={styles.news_title}>Recent Project</h1>
       <Projects />
       <div className={styles.wrapper}>

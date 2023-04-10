@@ -1,5 +1,5 @@
 import React from 'react';
-import s from '../styles/Filter.module.css';
+import s from '../Globalstyles/Filter.module.css';
 export default function option({ title, items }) {
   return (
     <div className={`${s.option}`}>

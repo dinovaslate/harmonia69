@@ -1,7 +1,7 @@
 import React from 'react';
 import { useRef, useEffect } from 'react';
 import { FaSearch, FaTimesCircle } from 'react-icons/fa';
-import s from '../styles/modal.module.css';
+import s from '../Globalstyles/modal.module.css';
 export default function Modal({ SearchStatus, activateSearch }) {
   const parrentRef = useRef();
   useEffect(() => {

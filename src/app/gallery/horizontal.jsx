@@ -47,6 +47,16 @@ function Horizontal() {
         'https://png.pngtree.com/png-vector/20190115/ourlarge/pngtree-web-page-ui-default-avatar-handsome-guy-png-image_344498.jpg',
       name: 'Kiran Mahmud',
     },
+    {
+      title: 'Japan',
+      award: 'Greatest Art',
+      rank: 5,
+      src: 'http://photographyicon.com/wp-content/uploads/2011/06/example-of-portrait-photography.jpg',
+      desc: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit Distinctio, deleniti? Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, quod!',
+      avatar:
+        'https://png.pngtree.com/png-vector/20190115/ourlarge/pngtree-web-page-ui-default-avatar-handsome-guy-png-image_344498.jpg',
+      name: 'Kiran Mahmud',
+    },
   ];
   return (
     <>

@@ -1,12 +1,17 @@
 'use client';
 
 import React, { useState } from 'react';
-import Filter from '../components/Filter';
+import Filter from '../../GlobalComponents/Filter';
+import { FaMedal, FaRecycle, FaHashtag } from 'react-icons/fa';
 import s from '../styles/gallery.module.css';
 import Lightbox from './lightbox';
 import { Image } from 'next/image';
+import Menu from '../../GlobalComponents/menu';
 function GalleryImg() {
   const [active, setActive] = useState(false);
+  const [focus, setFocus] = useState(0);
+  const [activateMenu, setActivateMenu] = useState(false);
+  const [position, setPosition] = useState({ left: 0, top: 0 });
   const [image, setImage] = useState({
     src: '',
     desc: '',
@@ -214,6 +219,53 @@ function GalleryImg() {
       creator: 'Mahfud MD',
     },
   ];
+
+  const handleMenu = (e, index) => {
+    e.preventDefault();
+    setActivateMenu(true);
+    setFocus(index);
+    setPosition(`${e.pageY}px auto auto ${e.pageX}px`);
+  };
+  const handleRespond = (e) => {
+    console.log(`Coming From ${focus}`);
+    console.log(e);
+  };
+  const opt = [
+    {
+      title: 'Update',
+      icon: <FaMedal />,
+    },
+    {
+      title: 'Delete',
+      icon: <FaRecycle />,
+    },
+    {
+      title: 'Rank',
+      icon: <FaMedal />,
+      child: [
+        {
+          title: '1',
+          icon: <FaHashtag />,
+        },
+        {
+          title: '2',
+          icon: <FaHashtag />,
+        },
+        {
+          title: '3',
+          icon: <FaHashtag />,
+        },
+        {
+          title: '4',
+          icon: <FaHashtag />,
+        },
+        {
+          title: '5',
+          icon: <FaHashtag />,
+        },
+      ],
+    },
+  ];
   return (
     <>
       <div className={`backdrop ${active && 'active'}`}></div>
@@ -224,18 +276,24 @@ function GalleryImg() {
       </div>
 
       <div className={s.wrapper}>
-        {images.map((attr) => (
+        {images.map((attr, index) => (
           <img
             src={attr.src}
             alt=""
             className={s.item}
             ref={(input) => {
               if (!input) return;
-              if (input.complete) {
+              const onComplete = () => {
                 let height = input.clientHeight;
-                input.style.gridRow = `span ${~~(height / 10)}`;
+                input.style.gridRow = `span ${~~(height / 20)}`;
+              };
+              if (input.complete) {
+                onComplete();
+              } else {
+                input.addEventListener('load', onComplete);
               }
             }}
+            onContextMenu={(e) => handleMenu(e, index)}
             onClick={() => {
               setImage(attr);
               setActive(true);
@@ -243,6 +301,13 @@ function GalleryImg() {
           />
         ))}
       </div>
+      <Menu
+        position={position}
+        active={activateMenu}
+        setActive={setActivateMenu}
+        option={opt}
+        handleRespond={handleRespond}
+      />
     </>
   );
 }

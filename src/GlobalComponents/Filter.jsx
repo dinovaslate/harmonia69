@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { FaFilter } from 'react-icons/fa';
-import s from '../styles/Filter.module.css';
+import s from '../Globalstyles/Filter.module.css';
 import Option from './Option';
 import { useState, useRef, useEffect } from 'react';
 export default function Filter({ options }) {
@@ -11,7 +11,7 @@ export default function Filter({ options }) {
   const parrentRef = useRef();
   useEffect(() => {
     document.body.addEventListener('click', (e) => {
-      if (parrentRef.current.contains(e.target)) return;
+      if (parrentRef.current && parrentRef.current.contains(e.target)) return;
       setActive(false);
     });
   }, []);

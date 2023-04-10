@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState, useRef, useEffect } from 'react';
 import { FaHouseUser, FaPen, FaCalendarDay, FaNewspaper } from 'react-icons/fa';
-import s from '../styles/fab.module.css';
+import s from '../Globalstyles/fab.module.css';
 export default function FAB() {
   const [active, setActive] = useState(false);
   const sref = useRef();

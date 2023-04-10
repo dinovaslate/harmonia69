@@ -13,6 +13,7 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  const [active, setActive] = useState(false);
   const [SideNavStatus, activateSideNav] = useState(false);
   const [SearchStatus, activateSearch] = useState(false);
   useEffect(() => {
@@ -22,7 +23,9 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         <div
-          className={`backdrop ${(SideNavStatus || SearchStatus) && 'active'}`}
+          className={`backdrop ${
+            (SideNavStatus || SearchStatus || active) && 'active'
+          }`}
         ></div>
         <Navbar
           activateSideNav={activateSideNav}
@@ -31,8 +34,8 @@ export default function RootLayout({ children }) {
         <Modal SearchStatus={SearchStatus} activateSearch={activateSearch} />
         <FAB />
         <Side SideNavStatus={SideNavStatus} activateSideNav={activateSideNav} />
-        <Bottom />
-        <Upload />
+        <Bottom setActive={setActive} />
+        <Upload active={active} setActive={setActive} />
         <div className="news-container">{children}</div>
       </body>
     </html>

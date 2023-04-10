@@ -17,7 +17,8 @@ function Lightbox({
     document.body.addEventListener(
       'click',
       (e) => {
-        if (lightboxRef.current.contains(e.target)) return;
+        if (lightboxRef.current && lightboxRef.current.contains(e.target))
+          return;
         setActive(false);
       },
       { capture: true }

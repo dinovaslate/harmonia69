@@ -25,6 +25,7 @@
   gap: 0.6rem;
 }
 .action {
+  position: relative;
   padding: 0.5rem;
   border-radius: 5px;
   color: white;

@@ -1,8 +1,10 @@
 'use client';
 import { FaBars, FaSearch, FaBell, FaUser } from 'react-icons/fa';
-import React from 'react';
+import React, { useState } from 'react';
 import s from '../Globalstyles/navbar.module.css';
+import Approval from './Approval';
 export default function Navbar({ activateSideNav, activateSearch }) {
+  const [active, setActive] = useState(false);
   return (
     <div className={s.nav_wrapper}>
       <div className={s.left}>
@@ -17,8 +19,13 @@ export default function Navbar({ activateSideNav, activateSearch }) {
           <FaSearch />
         </div>
 
-        <div className={s.action}>
+        <div
+          className={s.action}
+          onMouseOver={() => setActive(true)}
+          onMouseLeave={() => setActive(false)}
+        >
           <FaBell />
+          <Approval active={active} />
         </div>
         <div
           className={`${s.input_wrapper} navbar desktop`}

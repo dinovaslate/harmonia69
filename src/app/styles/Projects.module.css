@@ -27,6 +27,12 @@
   color: white;
   flex-shrink: 0;
 }
+.tag {
+  background-color: rgb(158, 71, 132);
+  padding: 0.4rem 0.5rem;
+  border-radius: 100vw;
+  font-size: 0.8rem;
+}
 .project .marker {
   font-size: 1rem;
   font-weight: bold;

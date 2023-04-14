@@ -43,7 +43,7 @@
 }
 .blog-wrapper {
   padding: 80px 10px 5px 45px;
-  border-right: 1px lightgrey solid;
+  border-right: 1px lightgrey dashed;
   box-sizing: border-box;
 }
 .blog-title {
@@ -140,6 +140,7 @@
     border-right: none;
   }
   .side-wrapper {
+    padding-inline: 1rem;
     transform: scale(1.1);
     height: fit-content;
   }

@@ -12,21 +12,11 @@ export default function Projects({ setFocus, focus }) {
       tag: 'MACH',
       title: 'Project: Harmonia',
       desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore quibusdam nihil harum doloribus animi saepe.',
-      avatar: [
-        'https://www.peerspace.com/resources/wp-content/uploads/best-vancouver-portrait-photographers.png',
-        'https://www.peerspace.com/resources/wp-content/uploads/best-vancouver-portrait-photographers.png',
-        'https://i1.adis.ws/i/canon/canon-ef-85mm-f1.4l-is-usm-sample-031-new-hero_f94a560c4aa4410698177eaa61d696c8?$hero-header-half-16by9-dt-jpg$',
-      ],
     },
     {
       tag: 'MACH',
       title: 'Project: Harmonia',
       desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore quibusdam nihil harum doloribus animi saepe.',
-      avatar: [
-        'https://www.peerspace.com/resources/wp-content/uploads/best-vancouver-portrait-photographers.png',
-        'https://www.peerspace.com/resources/wp-content/uploads/best-vancouver-portrait-photographers.png',
-        'https://i1.adis.ws/i/canon/canon-ef-85mm-f1.4l-is-usm-sample-031-new-hero_f94a560c4aa4410698177eaa61d696c8?$hero-header-half-16by9-dt-jpg$',
-      ],
     },
   ];
   const opt = [
@@ -63,11 +53,7 @@ export default function Projects({ setFocus, focus }) {
             <div className={s.desc}>{desc}</div>
             <div className={s.niggers}></div>
             <div className={s.section}>
-              <div className={s.project_avatar}>
-                {avatar.map((elem) => (
-                  <img src={elem} />
-                ))}
-              </div>
+              <div className={s.tag}>Capacity: 5</div>
               <div className={s.button}>Join Code</div>
             </div>
           </div>

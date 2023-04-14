@@ -8,9 +8,6 @@ import PageWrapper from '@/GlobalComponents/PageWrapper';
 export default function Gallery() {
   return (
     <PageWrapper>
-      <div className="ambient"></div>
-      <div className="ambient2"></div>
-
       <Ambient />
       <Horizontal />
       <GalleryImg />

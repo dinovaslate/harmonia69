@@ -1,39 +1,3 @@
-<<<<<<< HEAD
-"use client"
-import React from 'react';
-import {useEffect, useState, useRef } from 'react' 
-import { FaUpload, FaGlobe, FaFileImage } from 'react-icons/fa';
-import s from '../styles/upload.module.css';
-import firebaseApp from '../../services/firebase';
-import { getDatabase, ref, child, get } from 'firebase/database'
-export default function Upload() {
-
-  const [isLoading, setIsLoading] = useState(true)
-  const snapshot = useRef(null)
-  const error = useRef(null)
-
-  const getValue = async () => {
-    try{
-      const database = getDatabase(firebaseApp)
-      const rootReference = ref(database)
-      const dbGet = await get(child(rootReference, "news"))
-      const dbValue = dbGet.val()
-      snapshot.current = dbValue()
-    } catch(getError){
-      error.current = getError.message
-    }
-    setIsLoading(false)
-    
-  }
-
-  useEffect(() => {
-    getValue()
-  }, [])
-
-  if (isLoading){
-    return <p>Fetching data....</p>
-  }
-=======
 'use client';
 import React, { useRef, useState, useCallback, useEffect } from 'react';
 import { FaUpload, FaGlobe, FaFileImage } from 'react-icons/fa';
@@ -53,7 +17,6 @@ export default function Upload({ active, setActive }) {
     };
   }, []);
 
->>>>>>> 9478228f7deb2bc9779edd997d73714ab31c66f5
   return (
     <>
       <div

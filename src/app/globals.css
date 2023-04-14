@@ -16,11 +16,11 @@ body.active {
 /* Track */
 ::-webkit-scrollbar-track {
   /* From https://css.glass */
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 16px;
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.48);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(18.3px);
+  -webkit-backdrop-filter: blur(18.3px);
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
@@ -157,4 +157,16 @@ h3 {
   background-color: hsl(350, 51%, 54%);
   filter: blur(150px);
   z-index: 2;
+}
+button {
+  color: white;
+  /* From https://css.glass */
+  background: rgba(210, 118, 133, 0.71);
+  border-radius: 5px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(14.6px);
+  -webkit-backdrop-filter: blur(14.6px);
+  border: 1px solid rgba(210, 118, 133, 0.3);
+  padding: 0.5rem 0.8rem;
+  font-size: 1rem;
 }

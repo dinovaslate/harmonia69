@@ -4,6 +4,8 @@ export default function Ambient() {
   return (
     <>
       <div className="bg">
+        <div className="ambient"></div>
+        <div className="ambient2"></div>
         <div className="x">
           <img
             src={'./esvege.svg'}

@@ -1,13 +1,13 @@
 import React from 'react';
 import s from '../styles/dashboards.module.css';
 import '../globals.css';
-import {} from 'react-icons';
+import { FaHouseUser, FaNewspaper, FaPen, FaPlus } from 'react-icons/fa';
 export default function Dashboards() {
   return (
     <>
       <div className={s.sidenav}>
         {/* <i className="fa-solid fa-circle-xmark icon sidetrigger"></i> */}
-        <h1 style="color: white; font-weight: 300">SOSMED</h1>
+        <h1 style={{color: 'white', fontWeight: '300'}}>SOSMED</h1>
         <div className={s.button_sd}>Instagram</div>
         <div classname={s.button_sd}>Twitter</div>
         <div classname={s.button_sd}>Deviant Art</div>
@@ -18,19 +18,19 @@ export default function Dashboards() {
           classname={s.action}
           style={{ border: '0', borderRadius: '20px 0 0 20px' }}
         >
-          <i className="fa-solid fa-house"></i>
+          <FaHouseUser/>
         </div>
         <div classname={s.action}>
-          <i className="fa-solid fa-newspaper"></i>
+          <FaNewspaper/>
         </div>
         <div classname={s.action}>
-          <i className="fa-solid fa-pen"></i>
+          <FaPen/>
         </div>
         <div
           className={`${s.action} ${s.upload_trigger}`}
-          style="border-radius: 0 20px 20px 0"
+          style={{borderRadius: '0 20px 20px 0'}}
         >
-          <i className="fa-solid fa-plus"></i>
+          <FaPlus/>
         </div>
       </div>
 

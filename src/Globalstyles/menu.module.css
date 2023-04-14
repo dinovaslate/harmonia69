@@ -1,0 +1,41 @@
+.menu {
+  --inset: auto auto auto auto;
+  position: absolute;
+  inset: var(--inset);
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(210, 118, 133, 0.3);
+  width: 200px;
+  color: white;
+  z-index: 1;
+}
+.background {
+  position: absolute;
+  /* From https://css.glass */
+  background: rgba(24, 18, 43, 0.79);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(9.6px);
+  -webkit-backdrop-filter: blur(9.6px);
+  border: 1px solid rgba(24, 18, 43, 0.3);
+  inset: 0;
+  z-index: -1;
+}
+.menu-list {
+  box-sizing: border-box;
+  width: 100%;
+  list-style: none;
+  padding: 0.8rem 0.8rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: 150ms ease-in-out;
+}
+.menu-list:hover {
+  background: hsla(350, 51%, 50%, 0.68);
+}
+.title {
+  display: flex;
+  gap: 0.6rem;
+}

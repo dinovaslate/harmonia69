@@ -9,8 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
+<<<<<<< HEAD
     "dotenv": "^16.0.3",
     "firebase": "^9.19.1",
+=======
+    "framer-motion": "^10.10.0",
+>>>>>>> 9478228f7deb2bc9779edd997d73714ab31c66f5
     "next": "13.2.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",

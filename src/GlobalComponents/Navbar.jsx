@@ -1,7 +1,7 @@
 'use client';
 import { FaBars, FaSearch, FaBell, FaUser } from 'react-icons/fa';
 import React from 'react';
-import s from '../styles/navbar.module.css';
+import s from '../Globalstyles/navbar.module.css';
 export default function Navbar({ activateSideNav, activateSearch }) {
   return (
     <div className={s.nav_wrapper}>

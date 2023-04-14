@@ -1,5 +1,5 @@
 import React from 'react';
-import s from '../styles/sidebar.module.css';
+import s from '../Globalstyles/sidebar.module.css';
 import {
   FaInstagram,
   FaTwitter,

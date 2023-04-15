@@ -1,36 +1,49 @@
-import React from 'react'
-import useGetValue from '../../../hooks/useGetValue'
-import { getDatabase, ref, child, get } from 'firebase/database'
-import firebaseApp from '../../../services/firebase'
-export default function page({values}) {
-    // const posts = useGetValue('post')
+'use client';
 
-    //   if(posts.isLoading) {
-    //     return <p>Fetching data...</p>
-    //   }
-      
-    //   const posts = snapshot.current
-    //   const data = Object.values(posts.snapshot)
+import React, { useEffect, useState } from "react"
+import {Data} from "../CustomHooks/useGetData";
+export default function page() {
+  const [post, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    const process = async () => {
+        const post = new Data();
+        await post.loadData('post');
+        setLoading(false)
+        if(post.error){
+            console.log('Data error', post.error);
+            return;
+        }
+        setPosts(Object.values(post.data));
+        console.log(post.data);
+    }
+    process();
+    const add = async () => {
+        const db = new Data();
+        await db.addData('post', {
+            title: "Halo Semuanya",
+            description: "Semuanya akan baik baik saja",
+            name: "Dinova Ganteng",
+            tag: "Cartoon; Real; 2D; 3D",
+            imageUrl: 'https://cdn.glitch.global/7430fc43-4325-457b-a220-181fdbbe4b11/logo.png?v=1678587387015'
+        }, 'postID3');
+        console.log(db.error);
+    }
+    add();
+  }, [])  
+  
   return (
     <div>
-        {values && values.map((item) => {
-            return(
-                <h1>{item.description}</h1>
-            )
-        })}
+      {post.map(({title, imageUrl, tag, description, name}) => (
+          <>
+            <img src={imageUrl}/>
+            <div>{title}</div>
+            <div>{tag}</div>
+            <div>{name}</div>
+            <div>{description}</div>
+          </>
+          ))}
     </div>
   )
 }
 
-export async function getServerSideProps () {
-    const database = getDatabase(firebaseApp)
-    const rootReference = ref(database)
-    const dbGet = await get(child(rootReference, 'post'))
-    const data = await dbGet.json()
-    console.log({message: 'Berhasil'})
-    return{
-        props:{
-            values: data,
-        }
-    }
-}

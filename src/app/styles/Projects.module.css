@@ -12,12 +12,16 @@
 }
 .project {
   scroll-snap-align: start;
-  background: rgba(255, 255, 255, 0.22);
-  border-radius: 10px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(7px);
-  -webkit-backdrop-filter: blur(7px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0)
+  );
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 5px 8px 5px 0 rgba(0, 0, 0, 0.27);
   padding: 1rem;
   display: flex;
   flex-direction: column;
@@ -81,7 +85,7 @@
 }
 .button {
   /* From https://css.glass */
-  background: hsla(247, 38%, 30%, 0.58);
+  background: rgb(210, 118, 133);
   padding: 0.6rem 0.8rem;
   border-radius: 5px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);

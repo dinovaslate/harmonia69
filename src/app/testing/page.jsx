@@ -1,48 +1,45 @@
 'use client';
 
-import React, { useEffect, useState } from "react"
-import {Data} from "../CustomHooks/useGetData";
+import React, { useEffect, useState, useRef } from "react"
+import {Data, Uploader} from "../CustomHooks/useGetData";
+import Editor from "../components/Editor";
 export default function page() {
-  const [post, setPosts] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [percentage, setPercetage] = useState(0);
+  const [error, setError] = useState("");
+  const uploader = new Uploader(setPercetage, setError, (url) => {
+    const Database = new Data();
+    Database.addData('gallery/', {
+      url,
+      title: "Ku Menangis"
+    })
+  });
+  const fileref = useRef();
+  const handleClick = () => {
+    console.log("Clicked");
+    uploader.uploadFile(fileref?.current?.files[0], 'images/' + fileref?.current?.files[0]?.name);
+  }
   useEffect(() => {
-    const process = async () => {
-        const post = new Data();
-        await post.loadData('post');
-        setLoading(false)
-        if(post.error){
-            console.log('Data error', post.error);
-            return;
-        }
-        setPosts(Object.values(post.data));
-        console.log(post.data);
-    }
-    process();
-    const add = async () => {
-        const db = new Data();
-        await db.addData('post', {
-            title: "Halo Semuanya",
-            description: "Semuanya akan baik baik saja",
-            name: "Dinova Ganteng",
-            tag: "Cartoon; Real; 2D; 3D",
-            imageUrl: 'https://cdn.glitch.global/7430fc43-4325-457b-a220-181fdbbe4b11/logo.png?v=1678587387015'
-        }, 'postID3');
-        console.log(db.error);
-    }
-    add();
-  }, [])  
-  
+    console.log(percentage);
+  }, [percentage]);
+  useEffect(() => {
+    if(error) alert(error);
+  }, [error]);
+  useEffect(() => {
+    const data = new Data();
+    data.query('images/ea1e5970-66e2-420a-b145-6bfb454176a8', [{
+      key: 'title',
+      comparator: "==",
+      value: "Ku Menangis"
+    }], []);
+    console.log(data.data);
+    console.log(data.error);
+  })
   return (
-    <div>
-      {post.map(({title, imageUrl, tag, description, name}) => (
-          <>
-            <img src={imageUrl}/>
-            <div>{title}</div>
-            <div>{tag}</div>
-            <div>{name}</div>
-            <div>{description}</div>
-          </>
-          ))}
+    <div>    
+      <input type="file" ref={fileref} />
+      <button onClick={() => handleClick()} style={{cursor: 'pointer'}}>Upload</button>
+      {percentage}
+      <Editor />
     </div>
   )
 }

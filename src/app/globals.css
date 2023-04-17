@@ -12,7 +12,17 @@ body {
 body.active {
   overflow: hidden;
 }
-
+.ce-header{
+  font-size: 50px;
+  font-family: 'Raleway', sans-serif;
+  margin-bottom: 10px;
+  margin-top: -10px;
+  box-sizing: border-box;
+}
+.ce-paragraph{
+  line-height: 2rem !important;
+  box-sizing: border-box;
+}
 /* Track */
 ::-webkit-scrollbar-track {
   /* From https://css.glass */
@@ -98,16 +108,95 @@ body {
   height: 100vh;
   overflow: hidden;
 }
-
+.image-tool--loading .image-tool__image{
+  max-width: 40rem !important;
+  margin-top: 5px;
+  margin-bottom: 25px;
+  box-sizing: border-box;
+  width: 90vw;
+}
 .x {
   position: absolute;
   animation: x var(--x-speed) linear infinite alternate;
+}
+.image-tool__image-picture {
+  max-width: 40rem !important;
+  margin-top: 5px;
+  margin-bottom: 25px;
+  box-sizing: border-box;
+  width: 90vw;
+}
+@media (max-width: 600px) {
+  .ce-header {
+    font-size: 40px;
+  }
+}
+@media (min-width: 2000px) {
+  .ce-header {
+    font-size: 58px;
+  }
+  .ce-paragraph {
+    font-size: 18px;
+    line-height: 2.2rem;
+  }
+}
+
+.embed-tool{
+  max-width: 40rem;
+  margin-top: 5px;
+  margin-bottom: 25px;
+  box-sizing: border-box;
+  width: 90vw;
 }
 .y {
   position: absolute;
   animation: y var(--y-speed) linear infinite alternate;
 }
-
+.ce-block__content {
+  max-width: max-content !important;
+  margin: 0 0 0 0 ;
+}
+.ce-popover, .ce-inline-toolbar, .ce-conversion-toolbar {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(255, 255, 255, 0) 130%);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 10px;
+    border:1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+::selection{
+  background-color: rgba(0, 0, 0, 0.2);
+  color: rgba(255, 255, 255, 0.8);
+}
+.ce-popover__item:hover, .ce-inline-tool:hover, .ce-inline-toolbar__dropdown:hover {
+  background-color: hsla(0, 0%, 0%, .2) !important;
+}
+.ce-conversion-tool__icon{
+  color: black;
+}
+.ce-popover__item-icon{
+  color: black;
+}
+.cdx-search-field__input::placeholder{
+  color: black;
+}
+.ce-toolbar__plus {
+  color: white;
+}
+.codex-editor {
+  width: 90%;
+  margin: 0 auto;
+  margin-top: -1.6rem;
+}
+.ce-toolbar__content {
+  margin: 0 0 0 0;
+}
+.codex-editor {
+  color: white;
+}
+.ce-toolbar__settings-btn {
+  color: white;
+}
 @keyframes x {
   100% {
     transform: translateX(calc(100vw - var(--width)));
@@ -141,7 +230,7 @@ h3 {
   aspect-ratio: 1/1;
   border-radius: 50%;
   position: absolute;
-  width: 45vw;
+  width: 40rem;
   /* bottom: 10%;
     left: -10%; */
   background-color: rgb(210, 118, 133);

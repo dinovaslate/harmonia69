@@ -5,7 +5,6 @@ import Filter from '../../GlobalComponents/Filter';
 import { FaMedal, FaRecycle, FaHashtag } from 'react-icons/fa';
 import s from '../styles/gallery.module.css';
 import Lightbox from './lightbox';
-import { Image } from 'next/image';
 import Menu from '../../GlobalComponents/menu';
 function GalleryImg() {
   const [active, setActive] = useState(false);

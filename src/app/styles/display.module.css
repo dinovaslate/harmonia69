@@ -19,7 +19,7 @@
   position: fixed;
   inset: 0;
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   overflow-y: scroll;
   z-index: 100;
   transform: translateY(100%);
@@ -45,6 +45,8 @@
   padding: 80px 10px 5px 45px;
   border-right: 1px lightgrey dashed;
   box-sizing: border-box;
+  flex: 1;
+  min-height: calc(100vh - 20rem);
 }
 .blog-title {
   font-size: 50px;

@@ -10,9 +10,11 @@ import PageWrapper from '@/GlobalComponents/PageWrapper';
 import { useState, useEffect } from 'react';
 import Display from './components/Display';
 import CreateProject from './components/CreateProject';
+import CreateDisplay from './components/createNews';
 export default function Home() {
   const [focus, setFocus] = useState('');
   const [active, setActive] = useState(false);
+  const [editor, setEditor] = useState(false);
   const [projectForm, setProjectForm] = useState(false);
   const options = [
     {
@@ -37,6 +39,7 @@ export default function Home() {
   return (
     <PageWrapper>
       <div className={`backdrop ${projectForm && 'active'}`}></div>
+      <CreateDisplay setActive={setEditor} active={editor} />
       <Display active={active} setActive={setActive} />
       <CreateProject setActive={setProjectForm} active={projectForm} />
       <Ambient />
@@ -53,7 +56,7 @@ export default function Home() {
       <div className={styles.wrapper}>
         <h1 className={styles.news_title}>News</h1>
         <div style={{ display: 'flex', gap: '1rem' }}>
-          <button style={{ cursor: 'pointer' }}>Create New</button>
+          <button style={{ cursor: 'pointer' }} onClick={() => setEditor(true)}>Create New</button>
           <Filter options={options} />
         </div>
       </div>

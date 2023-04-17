@@ -50,8 +50,8 @@
   color: white;
   -webkit-line-clamp: 3;
   overflow: hidden;
-  font-weight: 600;
   line-height: 21px;
+  font-weight: 300;
 }
 .new_tag {
   text-align: center;

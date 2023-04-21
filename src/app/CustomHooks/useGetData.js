@@ -56,6 +56,7 @@ export class Data extends BackEnd{
              setState(data);
         }));
     }
+
     async addData(branch, datum){
        const colRef = this.#getCollectionRef(branch);
        try{
@@ -67,6 +68,7 @@ export class Data extends BackEnd{
        }
        
     }
+
     async deleteData(branch, id){
         const docRef = this.#getDocRef(branch, id);
         try{
@@ -76,6 +78,7 @@ export class Data extends BackEnd{
         }
         
     }
+
     async updateData(branch, id, newData){
         const docRef = this.#getDocRef(branch, id);
         try{
@@ -87,6 +90,7 @@ export class Data extends BackEnd{
         }
         
     }
+
     async query(branch, conditions, setState){
         if(!setState){
             this.setErrorState("No Setter available");
@@ -107,6 +111,7 @@ export class Data extends BackEnd{
           this.setErrorState(error);
        }
     }
+    
     async getById(branch, id, setState){
         const docRef = this.#getDocRef(branch, id);
         try{

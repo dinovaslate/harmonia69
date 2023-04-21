@@ -101,3 +101,42 @@
   padding: 0.2rem 0.3rem;
   border-radius: 5px;
 }
+
+.login{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 11px;
+  border-radius: 5px;
+  background: hsla(316, 48%, 91%, 0.204);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(7.1px);
+  -webkit-backdrop-filter: blur(7.1px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  transition: 200ms;
+}
+.login:hover{
+  background: hsla(318, 38%, 75%, 0.204);
+}
+.login_txt{
+  margin-left: 3px;
+}
+.account{ 
+  display: flex;
+  flex-direction: column;
+}
+.acc_wrap{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px white solid;
+  border-radius: 5px;
+  padding: 5px;
+}
+.accImg{
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 5px;
+}

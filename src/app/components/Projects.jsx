@@ -4,10 +4,12 @@ import React, { useEffect, useState } from 'react';
 import s from '../styles/Projects.module.css';
 import Menu from '@/GlobalComponents/menu';
 import { FaMedal, FaRecycle, FaHashtag } from 'react-icons/fa';
+import { auth } from '../../../services/firebase';
 import CreateProject from './CreateProject';
 export default function Projects({ setFocus, focus }) {
   const [activateMenu, setActivateMenu] = useState(false);
   const [position, setPosition] = useState('auto auto auto auto');
+  const [project, setProject] = useState(auth);
   const [projectList, setProjectList] = useState([]);
   // const projects = [
   //   {
@@ -60,6 +62,7 @@ export default function Projects({ setFocus, focus }) {
             </div>
           </div>
         ))} */}
+        
       </div>
       <Menu
         position={position}

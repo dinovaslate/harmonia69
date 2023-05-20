@@ -23,11 +23,12 @@ export default function CreateProject({ setActive, active }) {
   }, []);
   const data = new Data((error) => alert(error));
   const Upload = async () => { 
-    await data.addData('projects', title, description, radio ,capacity).then((err) => {
+    await data.addData('projects', title, description ,capacity).then((err) => {
       if(err){
         console.log(err)
       }else{
         alert('Your Project Submitted')
+        console.log({TULISAN: title})
       }
     })
   }

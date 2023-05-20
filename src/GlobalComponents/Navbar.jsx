@@ -2,22 +2,23 @@
 import { FaBars, FaSearch, FaBell, FaUser } from 'react-icons/fa';
 import { BsChevronDown } from 'react-icons/bs'
 import { FcGoogle } from 'react-icons/fc'
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import s from '../Globalstyles/navbar.module.css';
 import Approval from './Approval';
 import { auth } from '../../services/firebase';
-import { signInWithPopup, GoogleAuthProvider } from 'firebase/auth'
+import { signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { Context } from '@/app/Context/LoginContext';
 export default function Navbar({ activateSideNav, activateSearch }) {
   const [active, setActive] = useState(false);
-  const [ user, setUser ] = useAuthState(auth);
+  const [user, setUser] = useAuthState(auth);
   const provider = new GoogleAuthProvider();
+  const LoginContext = useContext(Context);
   const login = async () => {
-    const result  = await signInWithPopup(auth, provider);
-
+    await signInWithPopup(auth, provider);
   };
   useEffect(() => {
-    console.log(user);
+    LoginContext.setUser(user);
   }, [user]);
   return (
     <div className={s.nav_wrapper}>
@@ -26,32 +27,17 @@ export default function Navbar({ activateSideNav, activateSearch }) {
         <b style={{ marginLeft: '0.6rem', fontSize: '1.3rem' }}>MACH </b>
       </div>
       <div className={s.right}>
-        <div
-          className={`${s.action} mobile`}
-          onClick={() => activateSearch(true)}
-        >
+        <div className={`${s.action} mobile`} onClick={() => activateSearch(true)}>
           <FaSearch />
         </div>
 
-        <div
-          className={s.action}
-          onMouseOver={() => setActive(true)}
-          onMouseLeave={() => setActive(false)}
-        >
+        <div className={s.action} onMouseOver={() => setActive(true)} onMouseLeave={() => setActive(false)}>
           <FaBell />
           <Approval active={active} />
         </div>
-        <div
-          className={`${s.input_wrapper} navbar desktop`}
-          onClick={() => activateSearch(true)}
-        >
+        <div className={`${s.input_wrapper} navbar desktop`} onClick={() => activateSearch(true)}>
           <FaSearch className={s.icon} />
-          <input
-            type="text"
-            placeholder="Search..."
-            className={s.input}
-            readOnly
-          />
+          <input type="text" placeholder="Search..." className={s.input} readOnly />
           <div className={s.label}>Ctrl+K</div>
         </div>
         <div className={`${s.action} ${s.avatar}`}>
@@ -62,19 +48,23 @@ export default function Navbar({ activateSideNav, activateSearch }) {
           </div>
         </div>
         <div className={s.login} onClick={login}>
-         <FcGoogle/>
-         <b className={s.login_txt}>Sign In</b>
+          <FcGoogle />
+          <b className={s.login_txt}>Sign In</b>
         </div>
-        <div 
+        <div
           className={s.account}
-          onClick={() => auth.signOut().then(() => {
-            alert('Logout')
-          })}
+          onClick={() =>
+            auth.signOut().then(() => {
+              alert('Logout');
+            })
+          }
         >
-          <div className={s.acc_wrap}>
-            <img className={s.accImg} src={user?.photoURL} alt={user?.displayName}/>
-            <BsChevronDown style={{width: '15px'}}/>
-          </div>
+          {user && (
+            <div className={s.acc_wrap}>
+              <img className={s.accImg} src={user?.photoURL} alt={user?.displayName} />
+              <BsChevronDown style={{ width: '15px' }} />
+            </div>
+          )}
         </div>
       </div>
     </div>

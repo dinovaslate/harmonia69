@@ -177,6 +177,42 @@ body {
 .ce-popover__item-icon, .tc-popover__item-icon{
   color: black;
 }
+.radio{
+  display: flex;
+  gap: 1rem;
+  color: white;
+}
+.radio input{
+  appearance: none;
+  background-color: transparent;
+  margin: 0;
+  width: 1.15em;
+  aspect-ratio: 1/1;
+  border: 2px solid white;
+  transform: translateY(2px);
+  position: relative;
+}
+.radio input::before {
+  content: "";
+  width: 0.65em;
+  height: 0.65em;
+  scale: 0;
+  display: block;
+  position: absolute;
+  inset: 50% 50% auto auto;
+  transform: translate(50%, -50%) !important;
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em rgb(210, 118, 133);
+}
+.radio div{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.radio input:checked::before {
+  scale: 1;
+}
 .cdx-search-field__input::placeholder{
   color: black;
 }

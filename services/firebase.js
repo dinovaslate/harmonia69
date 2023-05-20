@@ -8,16 +8,15 @@ import { getAuth } from "firebase/auth";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: 'AIzaSyD8WaA8gy8KIF2GHMwC-J-6l6KI9MhTnoE',
-  authDomain: 'harmonia-51069.firebaseapp.com',
-  projectId: 'harmonia-51069',
-  storageBucket: 'harmonia-51069.appspot.com',
-  messagingSenderId: '174922142016',
-  appId: '1:174922142016:web:2f4fafb3c32de55689eaa5',
-  measurementId: 'G-QS8EFGW18X',
+  apiKey: "AIzaSyDtLoIryxfgKQ3WTxurg9lH1OiJY4rQi7E",
+  authDomain: "harmonia-4e63b.firebaseapp.com",
+  databaseURL: "https://harmonia-4e63b-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "harmonia-4e63b",
+  storageBucket: "harmonia-4e63b.appspot.com",
+  messagingSenderId: "1041817986278",
+  appId: "1:1041817986278:web:5da0b229cc888de3c58727",
+  measurementId: "G-K3D54PW286"
 };
-
-
 // Initialize Firebase
 const firebaseApp = initializeApp(firebaseConfig);
 export const auth = getAuth();

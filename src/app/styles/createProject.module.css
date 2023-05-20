@@ -243,4 +243,13 @@
     border: 1px solid rgba(210, 118, 133, 0.3);
     padding: 0.5rem;
   }
-  
+  .upload_project{
+    background: rgb(210, 118, 133);
+    border-radius: 5px;
+    border: 1px solid white;
+    color: white;
+    width: fit-content;
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+    cursor: pointer;
+  }

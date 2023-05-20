@@ -2,7 +2,7 @@
 import { FaBars, FaSearch, FaBell, FaUser } from 'react-icons/fa';
 import { BsChevronDown } from 'react-icons/bs'
 import { FcGoogle } from 'react-icons/fc'
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import s from '../Globalstyles/navbar.module.css';
 import Approval from './Approval';
 import { auth } from '../../services/firebase';

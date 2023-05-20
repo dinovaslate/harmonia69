@@ -4,21 +4,23 @@ import React, { useEffect, useState } from 'react';
 import s from '../styles/Projects.module.css';
 import Menu from '@/GlobalComponents/menu';
 import { FaMedal, FaRecycle, FaHashtag } from 'react-icons/fa';
+import CreateProject from './CreateProject';
 export default function Projects({ setFocus, focus }) {
   const [activateMenu, setActivateMenu] = useState(false);
   const [position, setPosition] = useState('auto auto auto auto');
-  const projects = [
-    {
-      tag: 'MACH',
-      title: 'Project: Harmonia',
-      desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore quibusdam nihil harum doloribus animi saepe.',
-    },
-    {
-      tag: 'MACH',
-      title: 'Project: Harmonia',
-      desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore quibusdam nihil harum doloribus animi saepe.',
-    },
-  ];
+  const [projectList, setProjectList] = useState([]);
+  // const projects = [
+  //   {
+  //     tag: 'MACH',
+  //     title: 'Project: Harmonia',
+  //     desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore quibusdam nihil harum doloribus animi saepe.',
+  //   },
+  //   {
+  //     tag: 'MACH',
+  //     title: 'Project: Harmonia',
+  //     desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore quibusdam nihil harum doloribus animi saepe.',
+  //   },
+  // ];
   const opt = [
     {
       title: 'Update',
@@ -46,18 +48,18 @@ export default function Projects({ setFocus, focus }) {
   return (
     <>
       <div className={s.projects}>
-        {projects.map(({ tag, title, desc, avatar }) => (
+        {/* {projects.map(({}) => (
           <div className={s.project} onContextMenu={(e) => handleMenu(e)}>
-            <div className={s.marker}>{tag}</div>
-            <div className={s.title}>{title}</div>
-            <div className={s.desc}>{desc}</div>
+            <div className={s.marker}>{}</div>
+            <div className={s.title}>{}</div>
+            <div className={s.desc}>{}</div>
             <div className={s.niggers}></div>
             <div className={s.section}>
               <div className={s.tag}>Capacity: 5</div>
               <div className={s.button}>Join Code</div>
             </div>
           </div>
-        ))}
+        ))} */}
       </div>
       <Menu
         position={position}

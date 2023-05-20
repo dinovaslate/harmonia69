@@ -6,8 +6,7 @@
   position: relative;
   box-sizing: border-box;
   z-index: 8;
-  /* From https://css.glass */
-  /* From https://css.glass */
+  min-height: 100vh;
   background: rgba(55, 48, 107, 0.75);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(18.4px);
@@ -24,6 +23,7 @@
   z-index: 100;
   transform: translateY(100%);
   transition: 200ms ease-in-out;
+  min-height: 100vh;
 }
 .blog-active {
   transform: translateY(0);
@@ -78,7 +78,10 @@
   box-sizing: border-box;
 }
 .side-container {
+  top: 0;
+  position: sticky;
   padding-top: 1rem;
+  padding-inline: 1rem;
   min-width: 23rem;
   width: 100%;
   padding-left: 15px;
@@ -101,6 +104,10 @@
   gap: 0.4rem;
   cursor: pointer;
   box-sizing: border-box;
+  padding-inline: 1rem;
+}
+.side-card:first-of-type{
+  margin-top: 1rem;
 }
 .side-card:hover {
   color: rgb(224, 223, 223);
@@ -117,10 +124,21 @@
   font-size: 12px;
   box-sizing: border-box;
 }
+.side-icon{
+  flex-basis: 60px;
+  font-size: 2.5rem;
+}
 .side-wrapper {
-  position: sticky;
-  top: 0;
-  height: 95vh;
+  min-width: 100%;
+  box-sizing: border-box;
+  background: linear-gradient(135deg, rgb(210, 118, 133, 0.4), rgba(255, 255, 255, 0));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 5px;
+  border:1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  display: flex;
+  flex-direction: column;
   overflow-y: auto;
   margin-bottom: 2rem;
   box-sizing: border-box;
@@ -129,6 +147,10 @@
   font-size: 20px;
   margin-bottom: 0.7rem;
   box-sizing: border-box;
+  background-color:hsl(318, 38%, 55%) ;
+  margin: 0;
+  width: 100%;
+  padding: 0.8rem 1rem;
 }
 @media (max-width: 1150px) {
   .blog-content {

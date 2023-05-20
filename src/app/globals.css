@@ -156,25 +156,25 @@ body {
   max-width: max-content !important;
   margin: 0 0 0 0 ;
 }
-.ce-popover, .ce-inline-toolbar, .ce-conversion-toolbar {
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(255, 255, 255, 0) 130%);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-radius: 10px;
-    border:1px solid rgba(255, 255, 255, 0.18);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+.ce-popover, .ce-inline-toolbar, .ce-conversion-toolbar, .tc-popover {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(255, 255, 255, 0) 130%) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    border-radius: 10px !important;
+    border:1px solid rgba(255, 255, 255, 0.18) !important;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37) !important;
 }
 ::selection{
   background-color: rgba(0, 0, 0, 0.2);
   color: rgba(255, 255, 255, 0.8);
 }
-.ce-popover__item:hover, .ce-inline-tool:hover, .ce-inline-toolbar__dropdown:hover {
+.ce-popover__item:hover, .ce-inline-tool:hover, .ce-inline-toolbar__dropdown:hover, .tc-popover__item:hover {
   background-color: hsla(0, 0%, 0%, .2) !important;
 }
 .ce-conversion-tool__icon{
   color: black;
 }
-.ce-popover__item-icon{
+.ce-popover__item-icon, .tc-popover__item-icon{
   color: black;
 }
 .cdx-search-field__input::placeholder{
@@ -258,4 +258,14 @@ button {
   border: 1px solid rgba(210, 118, 133, 0.3);
   padding: 0.5rem 0.8rem;
   font-size: 1rem;
+}
+
+.tc-wrap{
+  min-width: 600px;
+}
+.tc-row:first-of-type{
+  font-weight: bold;
+}
+.tc-cell{
+  border-left: 1px solid var(--color-border);
 }

@@ -7,15 +7,17 @@ import Filter from '../GlobalComponents/Filter';
 import News from './components/News';
 import Ambient from '@/GlobalComponents/Ambient';
 import PageWrapper from '@/GlobalComponents/PageWrapper';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import Display from './components/Display';
 import CreateProject from './components/CreateProject';
 import CreateDisplay from './components/createNews';
+import { Context } from './Context/LoginContext';
 export default function Home() {
   const [focus, setFocus] = useState('');
   const [active, setActive] = useState(false);
   const [editor, setEditor] = useState(false);
   const [projectForm, setProjectForm] = useState(false);
+  const LoginContext = useContext(Context);
   const options = [
     {
       id: 1,
@@ -45,10 +47,7 @@ export default function Home() {
       <Ambient />
       <div className={styles.wrapper}>
         <h1 className={styles.news_title}>Recent Project</h1>
-        <button
-          style={{ cursor: 'pointer' }}
-          onClick={() => setProjectForm(true)}
-        >
+        <button style={{ cursor: 'pointer' }} onClick={() => setProjectForm(true)}>
           Create New
         </button>
       </div>
@@ -56,7 +55,11 @@ export default function Home() {
       <div className={styles.wrapper}>
         <h1 className={styles.news_title}>News</h1>
         <div style={{ display: 'flex', gap: '1rem' }}>
-          <button style={{ cursor: 'pointer' }} onClick={() => setEditor(true)}>Create New</button>
+          {LoginContext.user && (
+            <button style={{ cursor: 'pointer' }} onClick={() => setEditor(true)}>
+              Create New
+            </button>
+          )}
           <Filter options={options} />
         </div>
       </div>

@@ -1,10 +1,23 @@
-import React from 'react';
+'use client';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import { EDITOR_JS_TOOLS } from '../tools';
+import { FaFile } from 'react-icons/fa';
 import s from '../styles/display.module.css';
 import { FaArrowLeft } from 'react-icons/fa';
 import Editor from './Editor';
+import { Context } from '../Context/LoginContext';
+import { Data } from '../CustomHooks/useGetData';
+import { where } from 'firebase/firestore';
 export default function CreateDisplay({ active, setActive }) {
-    
+  const [content, setContent] = useState([]);
+  const LoginContext = useContext(Context);
+  const DraftRef = useRef();
+  useEffect(() => {
+    if (!LoginContext.user) return;
+    console.log(LoginContext.user);
+    const data = new Data((error) => alert(error));
+    data.query('articles', [where('author', '==', LoginContext.user.uid)], (data) => (DraftRef.current = data));
+  }, [LoginContext.user]);
   return (
     <div className={`${active && s['blog-active']} ${s['blog']}`}>
       <div className={s['blog-container']}>
@@ -12,7 +25,7 @@ export default function CreateDisplay({ active, setActive }) {
           <FaArrowLeft />
         </div>
         <div className={s['blog-wrapper']}>
-            <Editor />
+          <Editor content={content} isActive={active} />
         </div>
 
         <div className={s['side-container']}>
@@ -25,9 +38,7 @@ export default function CreateDisplay({ active, setActive }) {
                 alt=""
               />
               <div className={s['side-txt-wrap']}>
-                <p className={s['side-text']}>
-                  This is an example of a side page
-                </p>
+                <p className={s['side-text']}>This is an example of a side page</p>
                 <p className={s['side-date']}>21 Maret 2023</p>
               </div>
             </div>
@@ -38,12 +49,22 @@ export default function CreateDisplay({ active, setActive }) {
                 alt=""
               />
               <div className={s['side-txt-wrap']}>
-                <p className={s['side-text']}>
-                  This is an example of a side page
-                </p>
+                <p className={s['side-text']}>This is an example of a side page</p>
                 <p className={s['side-date']}>21 Maret 2023</p>
               </div>
             </div>
+          </div>
+          <div className={s['side-wrapper']}>
+            <h1 className={s['side-title']}>Draft</h1>
+            {DraftRef.current?.map(({ author, date, content }) => {
+              <div className={s['side-card']} onClick={() => setContent(content)}>
+                <FaFile className={s['side-icon']} />
+                <div className={s['side-txt-wrap']}>
+                  <p className={s['side-text']}>{date}</p>
+                  <p className={s['side-date']}>{author}</p>
+                </div>
+              </div>;
+            })}
           </div>
         </div>
       </div>

@@ -8,7 +8,7 @@ export default function CreateProject({ setActive, active }) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [ capacity , setCapacity ] = useState("");
-  const [ tag, setTag ] = useState([]);
+  const [ tag, setTag ] = useState("");
   const [ projectList, setProjectList] = useState([]);
   const uploadRef = useRef();
   const bubble = useCallback((e) => {
@@ -81,7 +81,17 @@ export default function CreateProject({ setActive, active }) {
             <div className={s['tag']}>James Bond niGEER</div>
             <div className={s['tag']}>James Bond bARCO</div>
           </div>
+        <div className="radio" >
+          <div><input type="radio" id="age1" name="age" value="30" onClick={() => setTag("MACH")} />
+          <label for="age1"><b>MACH</b></label></div>
+          <div><input type="radio" id="age2" name="age" value="60" onClick={() => setTag("OBSCURA")}/>
+          <label for="age2"><b>OBSCURA</b></label> </div>
+          <div><input type="radio" id="age3" name="age" value="100" onClick={() => setTag("YANG LAINNYA")}/>
+          <label for="age3"><b>YANG LAINNYA</b></label></div>
+          
+          
         </div>
+
         <label className={s['label']} for="">
           Capacity
         </label>
@@ -110,6 +120,7 @@ export default function CreateProject({ setActive, active }) {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 }

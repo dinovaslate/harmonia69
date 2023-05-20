@@ -9,6 +9,7 @@ export default function CreateProject({ setActive, active }) {
   const [description, setDescription] = useState("");
   const [ capacity , setCapacity ] = useState("");
   const [ tag, setTag ] = useState([]);
+  const [ projectList, setProjectList] = useState([]);
   const uploadRef = useRef();
   const bubble = useCallback((e) => {
     if (uploadRef.current.contains(e.target)) return;
@@ -22,7 +23,7 @@ export default function CreateProject({ setActive, active }) {
   }, []);
   const data = new Data((error) => alert(error));
   const Upload = async () => { 
-    await data.addData('projects', title, description, tag, capacity).then((err) => {
+    await data.addData('projects', title, description, radio ,capacity).then((err) => {
       if(err){
         console.log(err)
       }else{
@@ -30,6 +31,7 @@ export default function CreateProject({ setActive, active }) {
       }
     })
   }
+ 
   return (
     <div className={`${s.upload} ${active && s.upload_active}`} ref={uploadRef}>
       <div className={s['tab']}>
